@@ -1,0 +1,128 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+export default function Home() {
+  const container = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+          pin: true,
+        },
+      })
+        // LEFT SIDE
+        .to(".left", {
+          x: "-150%",
+          opacity: 0,
+          ease: "power2.out",
+        })
+
+        // RIGHT SIDE
+        .to(
+          ".right",
+          {
+            x: "150%",
+            opacity: 0,
+            ease: "power2.out",
+          },
+          "<"
+        );
+    }, container);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <main
+      ref={container}
+      className="h-[300vh] w-full bg-[#1a1a1a] text-white font-serif selection:bg-red-900 selection:text-white"
+    >
+      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
+        
+        {/* Header */}
+        <header className="absolute top-0 left-0 w-full p-6 md:p-8 flex justify-between items-start text-xs md:text-sm tracking-widest z-50 text-gray-300 font-sans mix-blend-difference uppercase">
+          <div className="flex flex-col leading-tight">
+            <span className="font-bold text-white text-lg block">106th</span>
+            <span className="opacity-70">Anniversary</span>
+          </div>
+          <div className="absolute left-1/2 -translate-x-1/2 flex gap-12 hidden md:flex font-medium">
+            <span className="cursor-pointer hover:text-white transition-colors">Scroll for Explore</span>
+            <span className="cursor-pointer hover:text-white transition-colors">
+              Part of <u className="text-white decoration-1 underline-offset-4">GreatArmenia</u> project
+            </span>
+          </div>
+          <div className="cursor-pointer hover:text-white transition-colors">Credits</div>
+        </header>
+
+        {/* Background Noise/Texture Overlay */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-0" 
+             style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}>
+        </div>
+
+        {/* Main Content */}
+        <div className="relative z-10 flex flex-col items-center text-center w-full">
+          <h1 className="text-[7vw] md:text-[6.5vw] font-normal tracking-[-0.02em] text-white mb-[-2vw] leading-none z-20 mix-blend-overlay opacity-90">
+            ARMENIAN GENOCIDE
+          </h1>
+
+          <div className="flex text-[22vw] md:text-[24vw] leading-[0.8] text-[#cf1f1f] font-serif items-center justify-center whitespace-nowrap mix-blend-normal z-10">
+            {/* LEFT */}
+            <span className="letter left inline-block relative">1</span>
+            <span className="letter left inline-block relative">9</span>
+            <span className="letter left inline-block relative">1</span>
+            <span className="letter left inline-block relative">5</span>
+
+            {/* DASH */}
+            <span className="mx-2 md:mx-6 inline-block h-[1.5vw] w-[6vw] bg-[#cf1f1f] rounded-full self-center opacity-90"></span>
+
+            {/* RIGHT */}
+            <span className="letter right inline-block relative">1</span>
+            <span className="letter right inline-block relative">9</span>
+            <span className="letter right inline-block relative">1</span>
+            <span className="letter right inline-block relative">7</span>
+          </div>
+        </div>
+
+        {/* Right Sidebar / Badges */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-6 items-end pr-4 md:pr-8 z-50 pointer-events-none">
+            {/* Site of the Day Text */}
+            <div className="h-24 w-6 relative">
+                 <div className="absolute right-0 top-1/2 -translate-y-1/2 rotate-90 origin-center text-[10px] tracking-widest text-gray-400 whitespace-nowrap uppercase font-sans">
+                    Site of the Day
+                 </div>
+            </div>
+
+            {/* Award Circle */}
+            <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-gray-600/50 flex items-center justify-center backdrop-blur-sm bg-white/5">
+                <div className="text-[8px] md:text-[9px] text-gray-300 font-sans tracking-widest uppercase rotate-[-15deg] text-center leading-tight">
+                    Site<br/>Day
+                </div>
+            </div>
+
+            {/* W. Badge */}
+            <div className="w-10 h-10 md:w-12 md:h-12 bg-[#e63e3e] text-white flex items-center justify-center shadow-lg relative group cursor-pointer pointer-events-auto">
+                <span className="font-bold font-sans text-lg">W.</span>
+                <div className="absolute right-full mr-2 bg-white text-black text-[10px] px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap rounded">
+                    Honorable Mention
+                </div>
+            </div>
+        </div>
+
+        {/* Silhouette Gradient Effect (Simulating the soldier) */}
+        <div className="absolute bottom-0 right-0 w-[50vw] h-[80vh] bg-gradient-to-l from-black/80 via-black/40 to-transparent z-0 pointer-events-none mix-blend-multiply"></div>
+        <div className="absolute bottom-[-10vh] right-[10vw] w-[30vw] h-[60vh] bg-black blur-[100px] opacity-60 z-0"></div>
+
+      </div>
+    </main>
+  );
+}
