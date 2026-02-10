@@ -24,7 +24,7 @@ export default function Home() {
         scrollTrigger: {
           trigger: mainRef.current,
           start: "top top",
-          end: "+=300%", // 300vh scroll distance
+          end: "+=100%", // 100vh scroll distance (Even faster scroll)
           scrub: 1, // Smooth scrubbing
           pin: true,
         },
@@ -168,7 +168,7 @@ export default function Home() {
       {/* Hero Section (Pinned) */}
       <main
         ref={mainRef}
-        className="h-screen w-full relative flex flex-col items-center justify-center overflow-hidden"
+        className="h-screen w-full relative flex flex-col items-center justify-center overflow-hidden snap-start"
       >
         {/* Header */}
         <Header />
@@ -186,7 +186,7 @@ export default function Home() {
         {/* Main Content */}
         <div className="relative z-10 flex flex-col items-center text-center w-full mt-0 md:mt-[-5vh]">
           {/* Titles */}
-          <div className="flex items-center justify-center gap-[2vw] mb-[-2vw] z-30 mix-blend-normal w-full pointer-events-none notranslate">
+          <div className="flex items-center justify-center gap-[2vw] mb-[1vh] z-30 mix-blend-normal w-full pointer-events-none notranslate">
             <div className="neem-karoli text-[6vw] md:text-[5.5vw] font-serif tracking-[-0.02em] text-[#fcc419] leading-none origin-bottom-right drop-shadow-lg">
               NEEB KARORI
             </div>
@@ -194,6 +194,9 @@ export default function Home() {
               BABA
             </div>
           </div>
+
+          {/* Location / Subtitle */}
+          {/* Removed duplicate Kainchi Dham text as it is already in the Header */}
 
           {/* Numbers & Dash */}
           <div className="flex text-[18vw] md:text-[26vw] leading-[0.8] text-white font-serif items-center justify-center whitespace-nowrap mix-blend-normal z-10 w-full font-light notranslate">
@@ -228,7 +231,7 @@ export default function Home() {
       </main>
 
       {/* Video Section */}
-      <section className="relative w-full h-[70vh] bg-black flex items-center justify-center overflow-hidden z-20">
+      <section className="relative w-full h-screen bg-black flex items-center justify-center overflow-hidden z-20 snap-start">
         <video
           className="w-full h-full object-cover"
           autoPlay
@@ -242,8 +245,53 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/10"></div>
       </section>
 
+      {/* About Neem Karoli Baba Section (Updated) */}
+            <section className="about-section relative w-full h-auto min-h-screen md:h-screen bg-white flex flex-col md:flex-row items-center justify-center md:overflow-hidden z-20 snap-start">
+                <div className="container mx-auto px-6 md:h-full flex flex-col md:flex-row">
+                    {/* Left Content */}
+                    <div className="w-full md:w-1/2 md:h-full flex flex-col justify-start md:justify-center p-4 md:p-12 pt-24 md:pt-12 pb-32 text-black">
+                        <h2 className="text-2xl md:text-5xl font-sans font-normal mb-2 leading-tight">About Neem Karoli Baba</h2>
+                  <div className="w-12 h-1 bg-[#cf1f1f] mb-4"></div>
+                  <div className="font-serif text-sm md:text-base leading-normal md:leading-relaxed mb-4 text-gray-700 space-y-3">
+                      <p>
+                          In a world yearning for peace and spiritual connection, Neem Karoli Baba, affectionately known as Maharaj-ji, stands as a beacon of unconditional love. He was a Hindu guru and a devotee of the Hindu deity Hanuman, known for his simple yet profound teachings that transcended religious boundaries.
+                      </p>
+                      <p>
+                          For people across the world, Maharaj-ji symbolizes the power of devotion and personifies the prodigious force of love that transforms lives. His influence continues to guide seekers on their path to self-realization and service.
+                      </p>
+                  </div>
+                  <h3 className="text-lg md:text-2xl font-bold mb-2">A dream that lives on</h3>
+                  <p className="font-serif text-sm md:text-base leading-normal md:leading-relaxed mb-6 text-gray-700">
+                      The journey of a million smiles began with his simple message: "Love everyone, Serve everyone, Remember God." Regarded as a miracle worker by many, he emphasized that the greatest miracle is love itself. He inspired the creation of ashrams that serve as sanctuaries for seekers and centers for charitable activities, continuing his legacy of service to humanity.
+                  </p>
+                  <Link href="/about" className="inline-block bg-[#cf1f1f] text-white px-8 py-3 font-sans uppercase tracking-widest text-xs md:text-sm hover:bg-red-700 transition-colors w-fit">
+                      Know more
+                  </Link>
+              </div>
+
+              {/* Right Images */}
+              <div className="w-full md:w-1/2 h-full relative flex hidden md:flex">
+                  {/* We need 3 vertical strips */}
+                  <div className="w-1/3 h-full relative border-r border-white/10">
+                      <img src="/nkb.png" className="w-full h-full object-cover grayscale brightness-125" />
+                  </div>
+                  <div className="w-1/3 h-full relative border-r border-white/10">
+                      <img src="/c1.png" className="w-full h-full object-cover grayscale brightness-125" />
+                  </div>
+                  <div className="w-1/3 h-full relative">
+                      <img src="/indian-children1.jpg" className="w-full h-full object-cover grayscale brightness-125" />
+                  </div>
+                  
+                  {/* Floating Button */}
+                  <Link href="/history" className="absolute bottom-10 right-0 bg-[#cf1f1f] text-white px-6 py-3 font-sans uppercase tracking-widest text-sm hover:bg-red-700 transition-colors">
+                      Kainchi Dham History
+                  </Link>
+              </div>
+          </div>
+      </section>
+
       {/* Deportation Section with Parallax Background */}
-      <section className="deportation-section relative w-full h-auto min-h-[50vh] overflow-hidden flex flex-col items-center justify-center py-20 bg-[#1a1a1a] z-20">
+      <section className="deportation-section relative w-full h-screen overflow-hidden flex flex-col items-center justify-center py-10 bg-[#1a1a1a] z-20 snap-start">
          
          {/* Background with reduced opacity and foreground image */}
          <div className="deportation-bg absolute inset-0 w-full h-full z-0">
@@ -269,29 +317,29 @@ export default function Home() {
       </section>
 
       {/* Spacer for Armenian Section Scroll Trigger */}
-      <div className="armenian-spacer relative w-full h-[150vh] z-30 pointer-events-none"></div>
+      <div className="armenian-spacer hidden md:block relative w-full h-[100vh] z-30 pointer-events-none snap-start"></div>
 
       {/* Armenian Woman Section - Split Animation */}
-      <section className="armenian-section fixed top-0 left-0 w-full h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden z-40 py-20 bg-[#1a1a1a]">
+      <section className="armenian-section relative md:fixed top-0 left-0 w-full h-auto min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center md:overflow-hidden z-40 py-8 md:py-20 bg-[#1a1a1a]">
           
-          <div className="container mx-auto px-6 flex flex-col md:flex-row gap-12 items-center h-full relative z-10">
+          <div className="container mx-auto px-6 flex flex-col md:flex-row gap-4 md:gap-12 items-center h-full relative z-10">
               
               {/* Left: Image (Woman) */}
-              <div className="section-content-left w-full md:w-1/2 h-full flex items-center justify-center p-4 md:p-12">
-                  <div className="relative w-full aspect-video max-h-[80vh] bg-black/20 shadow-2xl overflow-hidden transform rotate-1">
+              <div className="section-content-left w-full md:w-1/2 h-full flex items-center justify-center p-0 md:p-12">
+                  <div className="relative w-full aspect-video max-h-[30vh] md:max-h-[80vh] bg-black/20 shadow-2xl overflow-hidden transform rotate-1">
                       <img src="/indian-children1.jpg" alt="Armenian Woman" className="w-full h-full object-cover contrast-110 brightness-100" />
                       <div className="absolute inset-0 ring-1 ring-white/10"></div>
                   </div>
               </div>
 
               {/* Right: Text Content */}
-              <div className="section-content-right w-full md:w-1/2 flex flex-col justify-center h-full gap-8 relative z-10 text-white p-4 md:p-12">
+              <div className="section-content-right w-full md:w-1/2 flex flex-col justify-center h-full gap-4 md:gap-8 relative z-10 text-white p-0 pb-8 md:p-12">
                 
-<h2 className="font-sans text-3xl md:text-5xl font-bold uppercase tracking-widest text-white leading-tight">
+<h2 className="font-sans text-2xl md:text-5xl font-bold uppercase tracking-widest text-white leading-tight">
     Education <br/>
 </h2>
                   
-                  <div className="space-y-6 font-serif text-lg md:text-xl leading-relaxed opacity-90">
+                  <div className="space-y-3 md:space-y-6 font-serif text-base md:text-xl leading-normal md:leading-relaxed opacity-90">
                       <p>
                           Importance of Education in Modern Society
                       </p>
@@ -314,29 +362,29 @@ export default function Home() {
 
 
       {/* Spacer for Death Photo Section Scroll Trigger */}
-      <div className="death-photo-spacer relative w-full h-[150vh] z-40 pointer-events-none"></div>
+      <div className="death-photo-spacer hidden md:block relative w-full h-[100vh] z-40 pointer-events-none snap-start"></div>
 
       {/* Cow Care Section (formerly Death Photo) - Split Animation */}
-      <section className="death-photo-section fixed top-0 left-0 w-full h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden z-[45] py-12 md:py-20 bg-[#1a1a1a]">
+      <section className="death-photo-section relative md:fixed top-0 left-0 w-full h-auto min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center md:overflow-hidden z-[45] py-8 md:py-20 bg-[#1a1a1a]">
           
-          <div className="container mx-auto px-6 flex flex-col md:flex-row gap-6 md:gap-12 items-center h-full relative z-10">
+          <div className="container mx-auto px-6 flex flex-col md:flex-row gap-4 md:gap-12 items-center h-full relative z-10">
               
               {/* Left: Image (Cow) */}
-              <div className="section-content-left w-full md:w-1/2 h-full flex items-center justify-center p-2 md:p-12">
-                  <div className="relative h-[40vh] w-auto aspect-[3/4] md:w-full md:h-auto md:max-h-[85vh] bg-black/20 shadow-2xl overflow-hidden mx-auto">
+              <div className="section-content-left w-full md:w-1/2 h-full flex items-center justify-center p-0 md:p-12">
+                  <div className="relative h-[30vh] md:h-auto w-auto aspect-[3/4] md:w-full md:max-h-[85vh] bg-black/20 shadow-2xl overflow-hidden mx-auto">
                       <img src="/c1.png" alt="Cow Care" className="w-full h-full object-cover" />
                   </div>
               </div>
 
               {/* Right: Text Content */}
-              <div className="section-content-right w-full md:w-1/2 flex flex-col justify-center h-full gap-4 md:gap-8 relative z-10 text-white p-2 md:p-12 text-center md:text-right">
-                  <h2 className="font-sans text-3xl md:text-5xl font-bold uppercase tracking-widest leading-tight">
+              <div className="section-content-right w-full md:w-1/2 flex flex-col justify-center h-full gap-4 md:gap-8 relative z-10 text-white p-0 pb-8 md:p-12 text-center md:text-right">
+                  <h2 className="font-sans text-2xl md:text-5xl font-bold uppercase tracking-widest leading-tight">
                       TRADITION AND <br/>
                       SOCIAL <br/>
                       <span className="text-[#cf1f1f]">RESPONSIBILITY</span>
                   </h2>
                   
-                  <div className="space-y-6 font-serif text-sm md:text-base leading-relaxed opacity-90">
+                  <div className="space-y-3 md:space-y-6 font-serif text-sm md:text-base leading-normal md:leading-relaxed opacity-90">
                       <p>
                           "Cow care supports agriculture, the environment, and cultural traditions. Providing proper food, clean water, shelter, and medical care keeps cows healthy and productive. It promotes sustainable farming, protects nature, and teaches kindness and responsibility. Caring for cows helps maintain ecological balance and builds a better future for society and the planet.
                       </p>
@@ -357,30 +405,30 @@ export default function Home() {
       </section>
 
       {/* Spacer for Orphans Section Scroll Trigger */}
-      <div className="orphans-spacer relative w-full h-[150vh] z-[45] pointer-events-none"></div>
+      <div className="orphans-spacer hidden md:block relative w-full h-[100vh] z-[45] pointer-events-none snap-start"></div>
 
       {/* The Armenian Gathered From Section - Split Animation */}
-      <section className="orphans-section fixed top-0 left-0 w-full h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden z-[48] py-20 bg-[#1a1a1a]">
+      <section className="orphans-section relative md:fixed top-0 left-0 w-full h-auto min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center md:overflow-hidden z-[48] py-8 md:py-20 bg-[#1a1a1a]">
           
-          <div className="container mx-auto px-6 flex flex-col md:flex-row gap-12 items-center h-full relative z-10">
+          <div className="container mx-auto px-6 flex flex-col md:flex-row gap-4 md:gap-12 items-center h-full relative z-10">
 
               {/* Left: Image (Group of children) */}
-              <div className="section-content-left w-full md:w-7/12 h-full flex items-center justify-center p-4 md:p-8">
-                  <div className="relative w-full aspect-[4/3] max-h-[85vh] bg-[#111] shadow-2xl overflow-hidden border border-white/10">
+              <div className="section-content-left w-full md:w-7/12 h-full flex items-center justify-center p-0 md:p-8">
+                  <div className="relative w-full aspect-[4/3] max-h-[40vh] md:max-h-[85vh] bg-[#111] shadow-2xl overflow-hidden border border-white/10">
                       <img src="/illchi.jpg" alt="Armenian Orphans" className="w-full h-full object-cover" />
                   </div>
               </div>
 
               {/* Right: Text Content */}
                   {/* Right: Text Content */}
-              <div className="section-content-right w-full md:w-1/2 flex flex-col justify-center h-full gap-8 relative z-10 text-white p-4 md:p-12 text-right">
-                  <h2 className="font-sans text-3xl md:text-5xl font-bold uppercase tracking-widest leading-tight">
+              <div className="section-content-right w-full md:w-1/2 flex flex-col justify-center h-full gap-4 md:gap-8 relative z-10 text-white p-0 pb-8 md:p-12 text-right">
+                  <h2 className="font-sans text-2xl md:text-5xl font-bold uppercase tracking-widest leading-tight">
                       Care and Challenges  <br/>
                  
                       <span className="text-[#cf1f1f]">of Sick Children</span>
                   </h2>
                   
-                  <div className="space-y-6 font-serif text-sm md:text-base leading-relaxed opacity-90">
+                  <div className="space-y-3 md:space-y-6 font-serif text-sm md:text-base leading-normal md:leading-relaxed opacity-90">
                       <p>
                           Caring for sick children requires medical attention, emotional support, and proper nutrition. Illness can affect children physically and emotionally, but with proper care and love, children can recover and lead healthy lives. Parents, healthcare professionals, schools, and society must work together to support sick children and ensure their well-being.
                       </p>
@@ -402,29 +450,29 @@ export default function Home() {
       
 
       {/* Spacer for Nutrition Section Scroll Trigger */}
-      <div className="nutrition-spacer relative w-full h-[150vh] z-50 pointer-events-none"></div>
+      <div className="nutrition-spacer hidden md:block relative w-full h-[100vh] z-50 pointer-events-none snap-start"></div>
 
       {/* Nutrition Section - Split Animation */}
-      <section className="nutrition-section fixed top-0 left-0 w-full h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden z-50 py-20 bg-[#1a1a1a]">
+      <section className="nutrition-section relative md:fixed top-0 left-0 w-full h-auto min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center md:overflow-hidden z-50 py-8 md:py-20 bg-[#1a1a1a]">
           
-          <div className="container mx-auto px-6 flex flex-col md:flex-row gap-12 items-center h-full relative z-10">
+          <div className="container mx-auto px-6 flex flex-col md:flex-row gap-4 md:gap-12 items-center h-full relative z-10">
 
               {/* Left: Image */}
-              <div className="section-content-left w-full md:w-1/2 h-full flex items-center justify-center p-4 md:p-12">
-                  <div className="relative w-full aspect-[4/3] max-h-[80vh] bg-black/10 shadow-2xl overflow-hidden">
+              <div className="section-content-left w-full md:w-1/2 h-full flex items-center justify-center p-0 md:p-12">
+                  <div className="relative w-full aspect-[4/3] max-h-[40vh] md:max-h-[80vh] bg-black/10 shadow-2xl overflow-hidden">
                       <img src="/Nutrition.jpg" alt="Children Eating" className="w-full h-full object-cover" />
                   </div>
               </div>
 
               {/* Right: Text Content */}
-                <div className="section-content-right w-full md:w-1/2 flex flex-col justify-center h-full gap-8 relative z-10 text-white p-4 md:p-12 text-right">
-                  <h2 className="font-sans text-3xl md:text-5xl font-bold uppercase tracking-widest leading-tight">
+                <div className="section-content-right w-full md:w-1/2 flex flex-col justify-center h-full gap-4 md:gap-8 relative z-10 text-white p-0 pb-8 md:p-12 text-right">
+                  <h2 className="font-sans text-2xl md:text-5xl font-bold uppercase tracking-widest leading-tight">
                     <span className="text-[#cf1f1f]">Nutrition</span>
                     <br/>
                     Helping the country fight against malnutrition 
                   </h2>
                   
-                  <div className="space-y-6 font-serif text-sm md:text-base leading-relaxed opacity-90">
+                  <div className="space-y-3 md:space-y-6 font-serif text-sm md:text-base leading-normal md:leading-relaxed opacity-90">
                       <p>
                         Nutrition is the foundation of a healthy and productive society. Proper nutrition provides the body with essential nutrients needed for growth, development, and overall well-being.
                       </p>
@@ -445,27 +493,27 @@ export default function Home() {
       </section>
 
       {/* Spacer for Sport Section Scroll Trigger */}
-      <div className="sport-spacer relative w-full h-[150vh] z-50 pointer-events-none"></div>
+      <div className="sport-spacer hidden md:block relative w-full h-[100vh] z-50 pointer-events-none snap-start"></div>
 
       {/* Sport Section - Split Animation */}
-      <section className="sport-section fixed top-0 left-0 w-full h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden z-50 py-20 bg-[#1a1a1a]">
+      <section className="sport-section relative md:fixed top-0 left-0 w-full h-auto min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center md:overflow-hidden z-50 py-8 md:py-20 bg-[#1a1a1a]">
           
-          <div className="container mx-auto px-6 flex flex-col md:flex-row gap-12 items-center h-full relative z-10">
+          <div className="container mx-auto px-6 flex flex-col md:flex-row gap-4 md:gap-12 items-center h-full relative z-10">
 
               {/* Left: Image */}
-              <div className="section-content-left w-full md:w-1/2 h-full flex items-center justify-center p-4 md:p-12">
-                  <div className="relative w-full aspect-[4/3] max-h-[80vh] bg-black/10 shadow-2xl overflow-hidden">
+              <div className="section-content-left w-full md:w-1/2 h-full flex items-center justify-center p-0 md:p-12">
+                  <div className="relative w-full aspect-[4/3] max-h-[40vh] md:max-h-[80vh] bg-black/10 shadow-2xl overflow-hidden">
                       <img src="/sport.jpg" alt="Children Playing" className="w-full h-full object-cover" />
                   </div>
               </div>
 
               {/* Right: Text Content */}
-               <div className="section-content-right w-full md:w-1/2 flex flex-col justify-center h-full gap-8 relative z-10 text-white p-4 md:p-12 text-right">
-                  <h2 className="font-sans text-3xl md:text-5xl font-bold uppercase tracking-widest leading-tight">
+               <div className="section-content-right w-full md:w-1/2 flex flex-col justify-center h-full gap-4 md:gap-8 relative z-10 text-white p-0 pb-8 md:p-12 text-right">
+                  <h2 className="font-sans text-2xl md:text-5xl font-bold uppercase tracking-widest leading-tight">
                       <span className="bg-[#cf1f1f] text-white px-2 py-1">SPORTS</span>
                   </h2>
                   
-                  <div className="space-y-6 font-serif text-sm md:text-base leading-relaxed opacity-90">
+                  <div className="space-y-3 md:space-y-6 font-serif text-sm md:text-base leading-normal md:leading-relaxed opacity-90">
                       <p>
                           Sports play a vital role in improving physical fitness, mental strength, and social skills. They help individuals develop discipline, teamwork, and confidence while promoting a healthy and active lifestyle. This article highlights the importance of sports in personal development and how participation in sports contributes to overall well-being and success in life
                       </p>
@@ -486,7 +534,7 @@ export default function Home() {
       </section>
 
       {/* Spacer for Remember Section Scroll Trigger */}
-      <div className="remember-spacer relative w-full h-[150vh] z-50 pointer-events-none"></div>
+      <div className="remember-spacer relative w-full h-[100vh] z-50 pointer-events-none snap-start"></div>
 
       {/* Remember Section - Typography Pattern */}
       <section className="remember-section fixed top-0 left-0 w-full h-screen bg-[#111] flex flex-col items-center justify-center overflow-hidden z-[60] py-20 border-t border-white/10 translate-y-full">
@@ -531,7 +579,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <div className="relative z-[70]">
+      <div className="relative z-[70] snap-start">
         <Footer />
       </div>
 
