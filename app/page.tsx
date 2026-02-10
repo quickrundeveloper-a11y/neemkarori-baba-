@@ -20,35 +20,41 @@ export default function Home() {
   // Use useIsomorphicLayoutEffect for GSAP ScrollTrigger to prevent hydration mismatches and ensure correct pinning
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: mainRef.current,
-          start: "top top",
-          end: "+=100%", // 100vh scroll distance (Even faster scroll)
-          scrub: 1, // Smooth scrubbing
-          pin: true,
-        },
+      let mm = gsap.matchMedia();
+
+      // Desktop Only: Hero Pinning
+      mm.add("(min-width: 768px)", () => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "top top",
+            end: "+=100%", 
+            scrub: 1, 
+            pin: true,
+          },
+        });
+
+        // Title Animation (Recede back)
+        tl.to(".neem-karoli", { scale: 0.5, opacity: 0.2, filter: "blur(20px)", duration: 2 }, 0);
+        tl.to(".baba", { scale: 0.5, opacity: 0.2, filter: "blur(20px)", duration: 2 }, 0);
+
+        // Numbers Spread Logic (Chaos)
+        tl.to(".n-1915 .char-1", { xPercent: -300, yPercent: 50, rotation: -45, scale: 0.5, duration: 3 }, 0)
+          .to(".n-1915 .char-2", { xPercent: -200, yPercent: 150, rotation: -20, scale: 0.6, duration: 3 }, 0)
+          .to(".n-1915 .char-3", { xPercent: -100, yPercent: 50, rotation: -10, scale: 0.5, duration: 3 }, 0)
+          .to(".n-1915 .char-4", { xPercent: -50, yPercent: 200, rotation: -30, scale: 0.4, duration: 3 }, 0);
+
+        tl.to(".n-1917 .char-1", { xPercent: 50, yPercent: 200, rotation: 30, scale: 0.4, duration: 3 }, 0)
+          .to(".n-1917 .char-2", { xPercent: 100, yPercent: 50, rotation: 10, scale: 0.5, duration: 3 }, 0)
+          .to(".n-1917 .char-3", { xPercent: 200, yPercent: 150, rotation: 20, scale: 0.6, duration: 3 }, 0)
+          .to(".n-1917 .char-4", { xPercent: 300, yPercent: 50, rotation: 45, scale: 0.5, duration: 3 }, 0);
+
+        // Dash fades out
+        tl.to(".dash", { scale: 0.5, opacity: 0, duration: 2 }, 1);
       });
 
-      // Title Animation (Recede back)
-      tl.to(".neem-karoli", { scale: 0.5, opacity: 0.2, filter: "blur(20px)", duration: 2 }, 0);
-      tl.to(".baba", { scale: 0.5, opacity: 0.2, filter: "blur(20px)", duration: 2 }, 0);
+      // Mobile & Desktop Shared Animations
 
-      // Numbers Spread Logic (Chaos)
-      // 1915 Elements
-      tl.to(".n-1915 .char-1", { xPercent: -300, yPercent: 50, rotation: -45, scale: 0.5, duration: 3 }, 0)
-        .to(".n-1915 .char-2", { xPercent: -200, yPercent: 150, rotation: -20, scale: 0.6, duration: 3 }, 0)
-        .to(".n-1915 .char-3", { xPercent: -100, yPercent: 50, rotation: -10, scale: 0.5, duration: 3 }, 0)
-        .to(".n-1915 .char-4", { xPercent: -50, yPercent: 200, rotation: -30, scale: 0.4, duration: 3 }, 0);
-
-      // 1917 Elements
-      tl.to(".n-1917 .char-1", { xPercent: 50, yPercent: 200, rotation: 30, scale: 0.4, duration: 3 }, 0)
-        .to(".n-1917 .char-2", { xPercent: 100, yPercent: 50, rotation: 10, scale: 0.5, duration: 3 }, 0)
-        .to(".n-1917 .char-3", { xPercent: 200, yPercent: 150, rotation: 20, scale: 0.6, duration: 3 }, 0)
-        .to(".n-1917 .char-4", { xPercent: 300, yPercent: 50, rotation: 45, scale: 0.5, duration: 3 }, 0);
-
-      // Dash fades out
-      tl.to(".dash", { scale: 0.5, opacity: 0, duration: 2 }, 1);
 
 
 
@@ -109,14 +115,13 @@ export default function Home() {
       };
 
       // Apply to sections
-      createSplitAnimation(".armenian-section", ".armenian-spacer");
-
-
-
-      createSplitAnimation(".death-photo-section", ".death-photo-spacer");
-      createSplitAnimation(".orphans-section", ".orphans-spacer");
-      createSplitAnimation(".nutrition-section", ".nutrition-spacer");
-      createSplitAnimation(".sport-section", ".sport-spacer");
+      mm.add("(min-width: 768px)", () => {
+        createSplitAnimation(".armenian-section", ".armenian-spacer");
+        createSplitAnimation(".death-photo-section", ".death-photo-spacer");
+        createSplitAnimation(".orphans-section", ".orphans-spacer");
+        createSplitAnimation(".nutrition-section", ".nutrition-spacer");
+        createSplitAnimation(".sport-section", ".sport-spacer");
+      });
 
       // Remember Section Vertical Slide (From Down)
       gsap.fromTo(".remember-section",
