@@ -2,10 +2,10 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="absolute top-0 left-0 w-full p-6 md:p-10 flex justify-between items-start z-50 mix-blend-difference uppercase">
-      <div className="flex flex-col leading-none font-sans tracking-widest text-gray-400">
+    <header className="absolute top-0 left-0 w-full p-6 md:p-10 flex justify-between items-start z-50 uppercase">
+      <div className="flex flex-col leading-none font-sans tracking-widest text-white">
         <span className="font-bold text-white text-xl md:text-2xl block mb-1">KAINCHI</span>
-        <span className="text-[10px] md:text-xs font-medium opacity-80">DHAM</span>
+        <span className="text-[10px] md:text-xs font-medium">DHAM</span>
       </div>
       
       <Link href="/donate" className="cursor-pointer hover:opacity-80 transition-opacity">

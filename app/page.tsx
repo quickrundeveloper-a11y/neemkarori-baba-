@@ -22,8 +22,8 @@ export default function Home() {
     const ctx = gsap.context(() => {
       let mm = gsap.matchMedia();
 
-      // Desktop Only: Hero Pinning
-      mm.add("(min-width: 768px)", () => {
+      // Hero Pinning (Mobile & Desktop)
+      mm.add("all", () => {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: mainRef.current,
@@ -35,7 +35,7 @@ export default function Home() {
         });
 
         // Title Animation (Recede back)
-        tl.to(".neem-karoli", { scale: 0.5, opacity: 0.2, filter: "blur(20px)", duration: 2 }, 0);
+        tl.to(".neeb-karori", { scale: 0.5, opacity: 0.2, filter: "blur(20px)", duration: 2 }, 0);
         tl.to(".baba", { scale: 0.5, opacity: 0.2, filter: "blur(20px)", duration: 2 }, 0);
 
         // Numbers Spread Logic (Chaos)
@@ -54,10 +54,6 @@ export default function Home() {
       });
 
       // Mobile & Desktop Shared Animations
-
-
-
-
 
 
       // Deportation Section Parallax
@@ -114,46 +110,46 @@ export default function Home() {
         }
       };
 
-      // Apply to sections
-      mm.add("(min-width: 768px)", () => {
+      // Apply to sections (Mobile & Desktop)
+      mm.add("all", () => {
         createSplitAnimation(".armenian-section", ".armenian-spacer");
         createSplitAnimation(".death-photo-section", ".death-photo-spacer");
         createSplitAnimation(".orphans-section", ".orphans-spacer");
         createSplitAnimation(".nutrition-section", ".nutrition-spacer");
         createSplitAnimation(".sport-section", ".sport-spacer");
+
+        // Remember Section Vertical Slide (From Down)
+        gsap.fromTo(".remember-section",
+          { yPercent: 100 },
+          {
+            yPercent: 0,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".remember-spacer",
+              start: "top bottom",
+              end: "top top",
+              scrub: true,
+            }
+          }
+        );
+
+        // Remember Collage Items Animation (Staggered Entrance)
+        gsap.fromTo(".collage-item",
+          { yPercent: 300, opacity: 0 }, 
+          {
+            yPercent: 0,
+            opacity: 1,
+            stagger: 0.15,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".remember-spacer",
+              start: "top bottom",
+              end: "top top",
+              scrub: 1,
+            }
+          }
+        );
       });
-
-      // Remember Section Vertical Slide (From Down)
-      gsap.fromTo(".remember-section",
-        { yPercent: 100 },
-        {
-          yPercent: 0,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".remember-spacer",
-            start: "top bottom",
-            end: "top top",
-            scrub: true,
-          }
-        }
-      );
-
-      // Remember Collage Items Animation (Staggered Entrance)
-      gsap.fromTo(".collage-item",
-        { yPercent: 300, opacity: 0 }, 
-        {
-          yPercent: 0,
-          opacity: 1,
-          stagger: 0.15,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: ".remember-spacer",
-            start: "top bottom",
-            end: "top top",
-            scrub: 1,
-          }
-        }
-      );
 
 
     }, wrapper);
@@ -173,14 +169,14 @@ export default function Home() {
       {/* Hero Section (Pinned) */}
       <main
         ref={mainRef}
-        className="h-screen w-full relative flex flex-col items-center justify-center overflow-hidden snap-start"
+        className="h-screen w-full relative flex flex-col items-center justify-center overflow-hidden"
       >
         {/* Header */}
         <Header />
 
         {/* Background Image - NKB */}
         <div className="absolute inset-0 z-0 flex items-center justify-center opacity-30 pointer-events-none">
-            <img src="/nkb.png" alt="Neem Karoli Baba" className="w-full h-full object-cover" />
+            <img src="/nkb.png" alt="Neeb Karori Baba" className="w-full h-full object-cover" />
         </div>
 
         {/* Background Noise/Texture Overlay */}
@@ -192,7 +188,7 @@ export default function Home() {
         <div className="relative z-10 flex flex-col items-center text-center w-full mt-0 md:mt-[-5vh]">
           {/* Titles */}
           <div className="flex items-center justify-center gap-[2vw] mb-[1vh] z-30 mix-blend-normal w-full pointer-events-none notranslate">
-            <div className="neem-karoli text-[6vw] md:text-[5.5vw] font-serif tracking-[-0.02em] text-[#fcc419] leading-none origin-bottom-right drop-shadow-lg">
+            <div className="neeb-karori text-[6vw] md:text-[5.5vw] font-serif tracking-[-0.02em] text-[#fcc419] leading-none origin-bottom-right drop-shadow-lg">
               NEEB KARORI
             </div>
             <div className="baba text-[6vw] md:text-[5.5vw] font-serif tracking-[-0.02em] text-[#fcc419] leading-none origin-bottom-left drop-shadow-lg">
@@ -236,7 +232,7 @@ export default function Home() {
       </main>
 
       {/* Video Section */}
-      <section className="relative w-full h-screen bg-black flex items-center justify-center overflow-hidden z-20 snap-start">
+      <section className="relative w-full h-screen bg-black flex items-center justify-center overflow-hidden z-20">
         <video
           className="w-full h-full object-cover"
           autoPlay
@@ -244,59 +240,56 @@ export default function Home() {
           muted
           playsInline
         >
-          <source src="/neem-karoli-baba.mp4" type="video/mp4" />
+          <source src="/neeb-karori-baba.mp4" type="video/mp4" />
         </video>
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/10"></div>
       </section>
 
-      {/* About Neem Karoli Baba Section (Updated) */}
-            <section className="about-section relative w-full h-auto min-h-screen md:h-screen bg-white flex flex-col md:flex-row items-center justify-center md:overflow-hidden z-20 snap-start">
+      {/* About Neeb Karori Baba Section (Updated) */}
+            <section className="about-section relative w-full h-auto min-h-screen md:h-screen bg-white flex flex-col md:flex-row items-center justify-center md:overflow-hidden z-20">
                 <div className="container mx-auto px-6 md:h-full flex flex-col md:flex-row">
                     {/* Left Content */}
                     <div className="w-full md:w-1/2 md:h-full flex flex-col justify-start md:justify-center p-4 md:p-12 pt-24 md:pt-12 pb-32 text-black">
-                        <h2 className="text-2xl md:text-5xl font-sans font-normal mb-2 leading-tight">About Neem Karoli Baba</h2>
+                        <h2 className="text-2xl md:text-5xl font-sans font-normal mb-2 leading-tight">About Neeb Karori Baba</h2>
                   <div className="w-12 h-1 bg-[#cf1f1f] mb-4"></div>
                   <div className="font-serif text-sm md:text-base leading-normal md:leading-relaxed mb-4 text-gray-700 space-y-3">
                       <p>
-                          In a world yearning for peace and spiritual connection, Neem Karoli Baba, affectionately known as Maharaj-ji, stands as a beacon of unconditional love. He was a Hindu guru and a devotee of the Hindu deity Hanuman, known for his simple yet profound teachings that transcended religious boundaries.
+                          In a world yearning for peace and spiritual connection, Neeb Karori Baba, affectionately known as Maharaj-ji, stands as a beacon of unconditional love. He was a Hindu guru and a devotee of the Hindu deity Hanuman, known for his simple yet profound teachings that transcended religious boundaries.
                       </p>
                       <p>
-                          For people across the world, Maharaj-ji symbolizes the power of devotion and personifies the prodigious force of love that transforms lives. His influence continues to guide seekers on their path to self-realization and service.
+                          His ashram, Kainchi Dham, nestled in the serene hills of Uttarakhand, continues to attract seekers from across the globe, including visionaries like Steve Jobs and Mark Zuckerberg.
                       </p>
                   </div>
-                  <h3 className="text-lg md:text-2xl font-bold mb-2">A dream that lives on</h3>
-                  <p className="font-serif text-sm md:text-base leading-normal md:leading-relaxed mb-6 text-gray-700">
-                      The journey of a million smiles began with his simple message: "Love everyone, Serve everyone, Remember God." Regarded as a miracle worker by many, he emphasized that the greatest miracle is love itself. He inspired the creation of ashrams that serve as sanctuaries for seekers and centers for charitable activities, continuing his legacy of service to humanity.
-                  </p>
-                  <Link href="/about" className="inline-block bg-[#cf1f1f] text-white px-8 py-3 font-sans uppercase tracking-widest text-xs md:text-sm hover:bg-red-700 transition-colors w-fit">
-                      Know more
-                  </Link>
-              </div>
-
-              {/* Right Images */}
-              <div className="w-full md:w-1/2 h-full relative flex hidden md:flex">
-                  {/* We need 3 vertical strips */}
-                  <div className="w-1/3 h-full relative border-r border-white/10">
-                      <img src="/nkb.png" className="w-full h-full object-cover grayscale brightness-125" />
-                  </div>
-                  <div className="w-1/3 h-full relative border-r border-white/10">
-                      <img src="/c1.png" className="w-full h-full object-cover grayscale brightness-125" />
-                  </div>
-                  <div className="w-1/3 h-full relative">
-                      <img src="/indian-children1.jpg" className="w-full h-full object-cover grayscale brightness-125" />
-                  </div>
                   
-                  {/* Floating Button */}
-                  <Link href="/history" className="absolute bottom-10 right-0 bg-[#cf1f1f] text-white px-6 py-3 font-sans uppercase tracking-widest text-sm hover:bg-red-700 transition-colors">
-                      Kainchi Dham History
+                  <Link href="/about" className="inline-block mt-4 text-[#cf1f1f] border-b-2 border-[#cf1f1f] pb-1 hover:text-red-700 transition-colors uppercase tracking-widest text-xs md:text-sm font-bold w-fit">
+                      Read More
                   </Link>
-              </div>
-          </div>
-      </section>
+                    </div>
+
+                    {/* Right Image Grid */}
+                    <div className="w-full md:w-1/2 h-[50vh] md:h-full relative overflow-hidden">
+                         {/* Slice 1 - Portrait */}
+                        <div className="absolute top-0 left-0 w-1/3 h-full border-r-2 border-white group overflow-hidden">
+                             <img src="/nkb5.jpg" alt="Neeb Karori Baba Portrait" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out" />
+                            <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-700"></div>
+                        </div>
+                         {/* Slice 2 - Temple */}
+                        <div className="absolute top-0 left-1/3 w-1/3 h-full border-r-2 border-white group overflow-hidden">
+                             <img src="/nkb14.png" alt="Kainchi Dham Temple" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out" />
+                            <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-700"></div>
+                        </div>
+                         {/* Slice 3 - Devotees */}
+                        <div className="absolute top-0 right-0 w-1/3 h-full group overflow-hidden">
+                             <img src="/nkb3.png" alt="Devotees" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out" />
+                            <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-700"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
       {/* Deportation Section with Parallax Background */}
-      <section className="deportation-section relative w-full h-screen overflow-hidden flex flex-col items-center justify-center py-10 bg-[#1a1a1a] z-20 snap-start">
+      <section className="deportation-section relative w-full h-screen overflow-hidden flex flex-col items-center justify-center py-10 bg-[#1a1a1a] z-20">
          
          {/* Background with reduced opacity and foreground image */}
          <div className="deportation-bg absolute inset-0 w-full h-full z-0">
@@ -306,7 +299,7 @@ export default function Home() {
 
          {/* Foreground Circular Image */}
          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-[#cf1f1f]/30 shadow-[0_0_50px_rgba(207,31,31,0.2)] mb-4 animate-fade-in relative z-10">
-            <img src="/nkb.png" alt="Neem Karoli Baba" className="w-full h-full object-cover object-top hover:scale-110 transition-transform duration-700" />
+            <img src="/nkb.png" alt="Neeb Karori Baba" className="w-full h-full object-cover object-top hover:scale-110 transition-transform duration-700" />
          </div>
 
          {/* Content */}
@@ -322,7 +315,7 @@ export default function Home() {
       </section>
 
       {/* Spacer for Armenian Section Scroll Trigger */}
-      <div className="armenian-spacer hidden md:block relative w-full h-[100vh] z-30 pointer-events-none snap-start"></div>
+      <div className="armenian-spacer hidden md:block relative w-full h-[100vh] z-30 pointer-events-none"></div>
 
       {/* Armenian Woman Section - Split Animation */}
       <section className="armenian-section relative md:fixed top-0 left-0 w-full h-auto min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center md:overflow-hidden z-40 py-8 md:py-20 bg-[#1a1a1a]">
@@ -367,7 +360,7 @@ export default function Home() {
 
 
       {/* Spacer for Death Photo Section Scroll Trigger */}
-      <div className="death-photo-spacer hidden md:block relative w-full h-[100vh] z-40 pointer-events-none snap-start"></div>
+      <div className="death-photo-spacer hidden md:block relative w-full h-[100vh] z-40 pointer-events-none"></div>
 
       {/* Cow Care Section (formerly Death Photo) - Split Animation */}
       <section className="death-photo-section relative md:fixed top-0 left-0 w-full h-auto min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center md:overflow-hidden z-[45] py-8 md:py-20 bg-[#1a1a1a]">
@@ -410,7 +403,7 @@ export default function Home() {
       </section>
 
       {/* Spacer for Orphans Section Scroll Trigger */}
-      <div className="orphans-spacer hidden md:block relative w-full h-[100vh] z-[45] pointer-events-none snap-start"></div>
+      <div className="orphans-spacer hidden md:block relative w-full h-[100vh] z-[45] pointer-events-none"></div>
 
       {/* The Armenian Gathered From Section - Split Animation */}
       <section className="orphans-section relative md:fixed top-0 left-0 w-full h-auto min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center md:overflow-hidden z-[48] py-8 md:py-20 bg-[#1a1a1a]">
@@ -455,7 +448,7 @@ export default function Home() {
       
 
       {/* Spacer for Nutrition Section Scroll Trigger */}
-      <div className="nutrition-spacer hidden md:block relative w-full h-[100vh] z-50 pointer-events-none snap-start"></div>
+      <div className="nutrition-spacer hidden md:block relative w-full h-[100vh] z-50 pointer-events-none"></div>
 
       {/* Nutrition Section - Split Animation */}
       <section className="nutrition-section relative md:fixed top-0 left-0 w-full h-auto min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center md:overflow-hidden z-50 py-8 md:py-20 bg-[#1a1a1a]">
@@ -498,7 +491,7 @@ export default function Home() {
       </section>
 
       {/* Spacer for Sport Section Scroll Trigger */}
-      <div className="sport-spacer hidden md:block relative w-full h-[100vh] z-50 pointer-events-none snap-start"></div>
+      <div className="sport-spacer hidden md:block relative w-full h-[100vh] z-50 pointer-events-none"></div>
 
       {/* Sport Section - Split Animation */}
       <section className="sport-section relative md:fixed top-0 left-0 w-full h-auto min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center md:overflow-hidden z-50 py-8 md:py-20 bg-[#1a1a1a]">
@@ -539,7 +532,7 @@ export default function Home() {
       </section>
 
       {/* Spacer for Remember Section Scroll Trigger */}
-      <div className="remember-spacer relative w-full h-[100vh] z-50 pointer-events-none snap-start"></div>
+      <div className="remember-spacer relative w-full h-[100vh] z-50 pointer-events-none"></div>
 
       {/* Remember Section - Typography Pattern */}
       <section className="remember-section fixed top-0 left-0 w-full h-screen bg-[#111] flex flex-col items-center justify-center overflow-hidden z-[60] py-20 border-t border-white/10 translate-y-full">
@@ -556,7 +549,7 @@ export default function Home() {
                               color: 'transparent',
                               marginLeft: i % 2 === 0 ? '-10vw' : '-20vw'
                           }}>
-                          NEEB KARORI BABA / NEEB KARORI BABA
+                          NEEM KARORI BABA / NEEM KARORI BABA
                       </h2>
                   </div>
               ))}
@@ -584,7 +577,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <div className="relative z-[70] snap-start">
+      <div className="relative z-[70]">
         <Footer />
       </div>
 

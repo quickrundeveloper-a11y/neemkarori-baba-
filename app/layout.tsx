@@ -29,9 +29,9 @@ const lexend = Lexend({
 });
 
 export const metadata: Metadata = {
-  title: "Neem Karoli Baba – Spiritual Saint and Teacher",
-  description: "Neem Karoli Baba was a famous Hindu saint known for his teachings of love, devotion, and selfless service. His spiritual guidance continues to inspire millions of devotees worldwide.",
-  keywords: "Neem Karoli Baba, Maharaj-ji, Kainchi Dham, Neem Karoli Baba teachings, Hindu saint, spiritual guru India",
+  title: "Neeb Karori Baba – Spiritual Saint and Teacher",
+  description: "Neeb Karori Baba was a famous Hindu saint known for his teachings of love, devotion, and selfless service. His spiritual guidance continues to inspire millions of devotees worldwide.",
+  keywords: "Neeb Karori Baba, Maharaj-ji, Kainchi Dham, Neeb Karori Baba teachings, Hindu saint, spiritual guru India",
 };
 
 export default function RootLayout({

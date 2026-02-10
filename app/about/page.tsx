@@ -16,14 +16,14 @@ export default function AboutPage() {
             <div className="w-full lg:w-[40%] flex flex-col justify-center space-y-8">
                 <div className="space-y-4">
                     <h1 className="text-3xl md:text-5xl font-light text-gray-800 tracking-tight">
-                        About Neem Karoli Baba
+                        About Neeb Karori Baba
                     </h1>
                     <div className="w-20 h-1 bg-[#cf1f1f]"></div>
                 </div>
 
                 <div className="space-y-6 text-gray-600 leading-relaxed text-base md:text-lg font-serif">
                     <p>
-                        In a world yearning for peace and spiritual connection, Neem Karoli Baba, affectionately known as Maharaj-ji, stands as a beacon of unconditional love. He was a Hindu guru and a devotee of the Hindu deity Hanuman, known for his simple yet profound teachings that transcended religious boundaries.
+                        In a world yearning for peace and spiritual connection, Neeb Karori Baba, affectionately known as Maharaj-ji, stands as a beacon of unconditional love. He was a Hindu guru and a devotee of the Hindu deity Hanuman, known for his simple yet profound teachings that transcended religious boundaries.
                     </p>
                     <p>
                         For people across the world, Maharaj-ji symbolizes the power of devotion and personifies the prodigious force of love that transforms lives. His influence continues to guide seekers on their path to self-realization and service.
@@ -48,9 +48,9 @@ export default function AboutPage() {
             <div className="w-full lg:w-[60%] flex min-h-[500px] md:min-h-[600px]">
                 {/* Slice 1 - Portrait */}
                 <div className="w-1/3 relative group overflow-hidden border-r-2 border-white">
-                    <Image
+                     <Image
                         src="/nkb5.jpg"
-                        alt="Neem Karoli Baba Portrait"
+                        alt="Neeb Karori Baba Portrait"
                         fill
                         className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
                         sizes="(max-width: 768px) 33vw, 20vw"
@@ -84,7 +84,7 @@ export default function AboutPage() {
                     
                     {/* Red Label */}
                     <div className="absolute bottom-8 right-0 bg-[#cf1f1f] text-white px-4 md:px-6 py-2 text-xs md:text-sm font-bold uppercase tracking-widest shadow-lg">
-                        Neem Karoli Baba History
+                        Neeb Karori Baba History
                     </div>
                 </div>
             </div>

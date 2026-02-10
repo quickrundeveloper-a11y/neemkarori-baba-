@@ -33,15 +33,15 @@ export default function PrivacyPolicyPage() {
         <div className="max-w-4xl mx-auto font-serif text-sm md:text-base leading-relaxed opacity-80 text-justify space-y-8 text-black">
           
           <p>
-            Neem Karoli Baba Trust is one of the oldest non-sectarian philanthropic organisations, internationally recognised for its noble work which spans more than a hundred years. The Trust’s core imperative is to drive sustainable social development and power change, through its multi-sectoral work across the nation.
+            Neeb Karori Baba Trust is one of the oldest non-sectarian philanthropic organisations, internationally recognised for its noble work which spans more than a hundred years. The Trust’s core imperative is to drive sustainable social development and power change, through its multi-sectoral work across the nation.
           </p>
 
           <p>
-            Neem Karoli Baba Trust is a public charitable trust registered under the relevant Public Trusts Act, and is an integral constituent of ‘Neem Karoli Baba Trust’. The Trust is hereinafter referred to as “We”, “Us”.
+            Neeb Karori Baba Trust is a public charitable trust registered under the relevant Public Trusts Act, and is an integral constituent of ‘Neeb Karori Baba Trust’. The Trust is hereinafter referred to as “We”, “Us”.
           </p>
 
           <p>
-            We anchor and operate the website (www.neemkarolibaba.com) to showcase the details of projects of the Trust across several themes and focus areas (“the Website”).
+            We anchor and operate the website (www.neebkaroribaba.com) to showcase the details of projects of the Trust across several themes and focus areas (“the Website”).
           </p>
 
           <p>
@@ -99,78 +99,13 @@ export default function PrivacyPolicyPage() {
               <p>
                 <span className="font-bold text-black">2.1</span> We or our third party service providers may use cookies to collect and store information with respect to Your use of Our Website. This information is collected automatically when You navigate Our Website. A cookie is a small text file that is stored on Your computer that enables Us to recognize You, (for example, as a registered User, projects viewed previously, your content preferences etc.) when You visited Our portal, store Your preferences and settings, enhance Your experience by delivering content and advertising specific to Your interests, perform research and analytics, track Your use of Our Website, and assist with security and administrative functions as well as monitor your navigation and search patterns on Our Website.
               </p>
-              <p>
-                <span className="font-bold text-black">2.2</span> Users have the option to accept or disable cookies at any time through their browsers however this may affect the functioning of our Website in their browsers.
-              </p>
             </div>
-          </div>
-
-          <div className="space-y-4">
-            <h2 className="font-sans text-xl md:text-2xl font-bold text-black uppercase tracking-wide">
-              3. Purpose of collecting your information:
-            </h2>
-            
-            <div className="pl-4 space-y-4 border-l border-black/10">
-              <p>
-                <span className="font-bold text-black">3.1</span> We collect your information to operate, provide, develop, and improve the initiatives available on our Website and provide functionality, analyse performance, fix errors, and improve the usability, effectiveness, reach and content of Our Website. We may collect Your information for analysis by technology tools such as Google Analytics for the purpose of providing you better outreach to our projects, updates and communication.
-              </p>
-              <p>
-                <span className="font-bold text-black">3.2</span> We may make use of automatically collected technical data in a combined format in order to understand how our Website is being used. We may share some of this with advertisers, sponsors, investors, strategic partners, and other third-party vendors in order to help grow our Website and projects/ initiatives.
-              </p>
-              <p>
-                <span className="font-bold text-black">3.3</span> We may use Your information to send you newsletters, promotional content, confirmations, updates, and otherwise facilitate Your use of, and our administration and operation of, our services; for any other purpose that is communicated to you when we collect the information;
-              </p>
-              <p>
-                <span className="font-bold text-black">3.4</span> We may use Your information to analyse the Website usage, improve content and accessibility, and customize Our Websites’ content, layout, and services and improve it to meet Your needs and to provide You with a smooth, efficient, safe and customized experience while using Our Website.
-              </p>
-              <p>
-                <span className="font-bold text-black">3.5</span> We may use Your information to communicate with You in relation to Your access, usage of the Website via different channels (e.g., by phone, email, WhatsApp, etc).
-              </p>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <h2 className="font-sans text-xl md:text-2xl font-bold text-black uppercase tracking-wide">
-              4. Disclosure and/ or transfer of your information with third parties:
-            </h2>
-            
-            <div className="pl-4 space-y-4 border-l border-black/10">
-              <p>
-                We will not share the personal data we have collected from You, except as described below:
-              </p>
-              <p>
-                <span className="font-bold text-black">4.1</span> We may share and/ or transfer your personal information with our other corporate entities or other trusts which form part of the Neem Karoli Baba Trust or associated entities (including their employees, subcontractors, service providers, directors and officers) and/or affiliates, data analytics providers, subcontractors, agents or service providers etc.
-              </p>
-              <p>
-                <span className="font-bold text-black">4.2</span> We may disclose Your information to external law enforcement or regulatory authorities and / or government agencies, as applicable.
-              </p>
-              <p>
-                <span className="font-bold text-black">4.3</span> The disclosure of Your personal information may be required in certain instances to provide You access to our Website, to comply with our legal obligations, to facilitate our marketing and advertising activities, or to prevent, detect, mitigate, and investigate any fraudulent or illegal activities. In the foregoing circumstances We shall not be under any obligation to intimate or notify you, or to obtain Your consent, for such disclosure, sharing or transfer of your personal information.
-              </p>
-              <p>
-                <span className="font-bold text-black">4.4</span> We may disclose Your information if required to do so by law or in good faith belief that such disclosure is reasonably necessary to respond to summons, court orders, or other legal process, law enforcement authorities, Government Authorities, courts, dispute resolution bodies, our regulators, auditors and any party appointed or requested by our regulators to carry out investigations or audits of our activities. We may also disclose Your personal information to respond to claims that an advertisement, posting or other content violates the rights of a third party, or protect the rights, property or personal safety of Our Users or the general public. In the foregoing circumstances we shall not be under any obligation to intimate or notify you, or to obtain your consent, for such disclosure, sharing or transfer of your personal information.
-              </p>
-              <p>
-                <span className="font-bold text-black">4.5</span> We may share your information with outside service providers that We use for a variety of purposes, such as to send you emails, newsletters, push notifications on our behalf. We may share Your information on a need-to-know basis with these third-party agencies only to enable them to perform their services.
-              </p>
-              <p>
-                <span className="font-bold text-black">4.6</span> If we share and/ or transfer your personal data to third parties for purposes stated in this Privacy Policy, we will use best endeavours to put in place appropriate controls and safeguards to ensure that your personal information is adequately protected and processed only for specified and reasonable purposes in a manner that is fair, transparent and has a lawful basis, and is stored for no longer than is necessary.
-              </p>
-            </div>
-          </div>
-
-          <div className="text-center mt-20 border-t border-black/10 pt-12">
-            <Link href="/" className="inline-block border border-black px-8 py-3 hover:bg-black hover:text-white transition-all duration-300 font-sans tracking-widest uppercase text-sm text-black">
-              Return Home
-            </Link>
           </div>
 
         </div>
       </main>
 
-      {/* Footer Component */}
       <Footer />
-
     </div>
   );
 }
