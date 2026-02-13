@@ -211,7 +211,7 @@ export default function Home() {
               </div>
             </div>
 
-            <span className="dash mx-[1.5vw] inline-block align-middle opacity-90 text-[18vw] md:text-[20vw] leading-none">–</span>
+            <span className="dash mx-[1.5vw] inline-block align-middle opacity-90 text-[10vw] md:text-[16vw] leading-none">–</span>
 
             <div className="w-1/2 flex justify-start">
               <div className="relative flex n-1917 origin-left">
