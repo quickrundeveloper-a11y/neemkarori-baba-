@@ -1,0 +1,13 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .text { font-family: sans-serif; font-weight: bold; font-size: 50px; }
+    </style>
+  </defs>
+  <text x="10" y="45" class="text" fill="#FF4D6D">D</text>
+  <text x="45" y="45" class="text" fill="#FF9F1C">O</text>
+  <text x="80" y="45" class="text" fill="#2EC4B6">N</text>
+  <text x="115" y="45" class="text" fill="#0077B6">A</text>
+  <text x="150" y="45" class="text" fill="#FF5733">T</text>
+  <text x="180" y="45" class="text" fill="#25A18E">E</text>
+</svg>
